@@ -65,11 +65,7 @@
 
         nav a:hover { color: var(--primary-color); }
 
-        /* AJUSTE DE ROLAGEM: Compensa a altura do menu */
-        section { scroll-margin-top: var(--header-height); }
-
         /* --- HERO SECTION --- */
-        /* Escolha aqui a imagem que preferir das opções anteriores */
         .hero {
             min-height: 100vh; 
             display: flex;
@@ -78,12 +74,29 @@
             align-items: center;
             text-align: center;
             padding: 0 20px;
-           background: linear-gradient(rgba(0, 30, 60, 0.8), rgba(0, 30, 60, 0.6)), 
+            position: relative;
+            background: linear-gradient(rgba(0, 30, 60, 0.9), rgba(0, 30, 60, 0.8)), 
             url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
             color: white;
+            overflow: hidden;
+        }
+
+        #hero-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .hero h1, .hero p, .hero .btn-cta, .hero .scroll-down {
+            position: relative;
+            z-index: 2;
         }
 
         .hero h1 {
@@ -233,6 +246,7 @@
     </header>
 
     <section id="inicio" class="hero">
+        <canvas id="hero-canvas"></canvas>
         <h1>Ciência de Dados aplicada à<br>Economia e Finanças</h1>
         <p>Projeto de extensão da UFJF. Tornamos a programação e IA acessíveis para todos.</p>
         
@@ -286,5 +300,6 @@
         <p>© 2025 Projeto QuantEcon | Universidade Federal de Juiz de Fora</p>
     </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>
