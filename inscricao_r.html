@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inscrição - Curso de Python | QuantEcon</title>
+    <title>Inscrição - Curso de R | QuantEcon</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../static/css/styles.css">
+    <link rel="stylesheet" href="static/css/styles.css">
     <script>
         // Inline script to set theme immediately
         (function () {
@@ -144,11 +144,10 @@
 
     <div class="form-container">
         <div class="header">
-            <h1 data-i18n="form.python.title">Inscrição Python</h1>
+            <h1 data-i18n="form.r.title">Inscrição em R</h1>
             <p data-i18n="form.subtitle">Preencha os dados abaixo para garantir sua vaga.</p>
         </div>
 
-        <!-- AQUI: Cole sua URL do Google Apps Script abaixo -->
         <script>
             async function handleSubmit(event) {
                 event.preventDefault();
@@ -170,7 +169,7 @@
                     });
 
                     if (response.ok) {
-                        alert('Inscrição realizada com sucesso! 🎉\nObrigado por se inscrever.');
+                        alert('Inscrição realizada com sucesso! 🎉\nObrigado por se inscrever no curso de R.');
                         form.reset();
                     } else {
                         const jsonData = await response.json();
@@ -185,7 +184,8 @@
             }
         </script>
 
-        <form action="https://formspree.io/f/mwpgwbze" method="POST" onsubmit="handleSubmit(event)">
+        <!-- AQUI: Coloque seu ID do Formspree para R (pode ser o mesmo ou outro) -->
+        <form action="https://formspree.io/f/xeoypkdv" method="POST" onsubmit="handleSubmit(event)">
             <div class="form-group">
                 <label for="nome" data-i18n="form.name.label">Nome Completo</label>
                 <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo" data-i18n="[placeholder]form.name.placeholder" required>
@@ -202,7 +202,7 @@
             </div>
 
             <div class="form-group">
-                <label for="nivel" data-i18n="form.level.python.label">Nível de Conhecimento em Python</label>
+                <label for="nivel" data-i18n="form.level.r.label">Nível de Conhecimento em R</label>
                 <select id="nivel" name="nivel" required>
                     <option value="" disabled selected data-i18n="form.select.default">Selecione uma opção</option>
                     <option value="iniciante" data-i18n="form.level.beginner">Iniciante</option>
@@ -217,6 +217,6 @@
         <a href="index.html" class="back-link" data-i18n="form.back">← Voltar para a página inicial</a>
     </div>
 
-    <script src="../static/js/script.js"></script>
+    <script src="static/js/script.js"></script>
 </body>
 </html>
