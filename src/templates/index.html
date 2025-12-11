@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuantEcon - UFJF | Data Science & Economia</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="../static/css/styles.css">
+    
+    <!-- Theme Flash Prevention -->
+    <script>
+        (function () {
+            try {
+                var localTheme = localStorage.getItem('theme');
+                var supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                if (localTheme === 'dark' || (!localTheme && supportDarkMode)) {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                } else {
+                    document.documentElement.setAttribute('data-theme', 'light');
+                }
+            } catch (e) { }
+        })();
+    </script>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <header>
+        <div class="logo">QuantEcon UFJF</div>
+        <nav>
+            <ul>
+                <li><a href="#home" data-i18n="nav.home">Início</a></li>
+                <li><a href="#parceiros" data-i18n="nav.about">Sobre</a></li>
+                <li><a href="#courses" data-i18n="nav.courses">Minicursos</a></li>
+                <li><a href="equipe.html" data-i18n="nav.team">Equipe</a></li>
+                <li style="display: flex; align-items: center; gap: 10px;">
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Alternar Tema">
+                        🌙
+                    </button>
+                    <button id="lang-toggle" class="lang-toggle" aria-label="Alternar Idioma">
+                        PT
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <canvas id="hero-canvas"></canvas>
+        <h1 data-i18n="hero.title">Ciência de Dados aplicada à<br>Economia e Finanças</h1>
+        <p data-i18n="hero.subtitle">Projeto de extensão da UFJF. Tornamos a programação e IA acessíveis para todos.</p>
+        <a href="#courses" class="cta-button" data-i18n="hero.cta">Inscrever-se Agora</a>
+        
+        <div class="scroll-down">
+            <a href="#parceiros" style="color: white;">↓</a>
+        </div>
+    </section>
+
+    <!-- Partner/Support Section -->
+    <section id="parceiros" class="partners">
+        <div class="container">
+            <a href="https://www2.ufjf.br/proex/2015/03/19/pro-reitoria-de-extensao-seleciona-um-bolsista-para-area-de-comunicacao/" target="_blank">
+                <img src="../static/img/logo-proex-oficial.jpg" alt="UFJF - Pró-Reitoria de Extensão" title="Ir para PROEX UFJF">
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about section-padding">
+        <div class="container">
+            <h2 class="section-title" data-i18n="about.title">Sobre o Projeto</h2>
+            <div class="text-content">
+                <p data-i18n="about.p1">
+                    O QuantEcon UFJF estabelece-se como um projeto de extensão universitária de excelência, dedicado a
+                    redefinir e modernizar o ensino e a pesquisa em Economia e Finanças. Parte-se da premissa de que o
+                    domínio de linguagens de programação e de metodologias computacionais constitui um novo pilar da análise
+                    econômica quantitativa — um requisito essencial para o profissional e o pesquisador contemporâneos.
+                </p>
+                <p data-i18n="about.p2">
+                    Diante de um cenário global cada vez mais orientado por Big Data, algoritmos avançados e processos de
+                    decisão automatizados, o projeto busca fortalecer a capacidade analítica da comunidade acadêmica. Para
+                    isso, promove o uso de ferramentas open-source de alto desempenho, aplicáveis a desafios que vão desde a
+                    modelagem macroeconômica estocástica e a análise financeira de alta frequência até o desenvolvimento e
+                    uso de sistemas de Inteligência Artificial voltados para fenômenos econômicos.
+                </p>
+                <p data-i18n="about.p3">
+                    A atuação do QuantEcon UFJF preenche uma lacuna crucial ao integrar a fronteira da tecnologia
+                    computacional diretamente ao ambiente de sala de aula e aos centros de pesquisa da Universidade Federal
+                    de Juiz de Fora. O projeto não apenas apresenta a teoria: ele capacita seus participantes a transformar
+                    conceitos abstratos em soluções computacionais robustas, reproduzíveis e orientadas para resultados.
+                    Dessa forma, prepara estudantes e pesquisadores para atender às demandas mais sofisticadas do mercado de
+                    trabalho e da produção científica internacional.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section id="courses" class="courses">
+        <div class="container">
+            <h2 class="section-title" data-i18n="courses.title">Minicursos Oferecidos</h2>
+            <p class="section-subtitle" data-i18n="courses.subtitle">Clique nos cards abaixo para acessar o formulário de inscrição.</p>
+            
+            <div class="course-grid">
+                <!-- Course 1: Python -->
+                <div class="card">
+                    <span class="card-icon">🐍</span>
+                    <h3 data-i18n="course.python.title">Introdução ao Python</h3>
+                    <p data-i18n="course.python.desc">Do zero ao Data Science. Aprenda Pandas, NumPy e Matplotlib aplicados à realidade económica e financeira. Domine a manipulação de dados.</p>
+                    <a href="inscricao_python.html" target="_blank" class="card-link" data-i18n="course.cta">Inscrever-se →</a>
+                </div>
+
+                <!-- Course 2: R -->
+                <div class="card">
+                    <span class="card-icon">📊</span>
+                    <h3 data-i18n="course.r.title">Introdução ao R</h3>
+                    <p data-i18n="course.r.desc">A ferramenta favorita dos estatísticos. Ideal para econometria, modelagem e visualização de dados complexos para pesquisa académica.</p>
+                    <a href="inscricao_r.html" target="_blank" class="card-link" data-i18n="course.cta">Inscrever-se →</a>
+                </div>
+
+                <!-- Course 3: AI -->
+                <div class="card">
+                    <span class="card-icon">🤖</span>
+                    <h3 data-i18n="course.ai.title">IA Generativa</h3>
+                    <p data-i18n="course.ai.desc">Como usar LLMs (ChatGPT, Claude) para acelerar a sua pesquisa, escrita e produtividade académica com engenharia de prompts.</p>
+                    <a href="https://forms.gle/9hnxTs2FMNngo91E9" target="_blank" class="card-link" data-i18n="course.cta">Inscrever-se →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p data-i18n="footer.text">© 2025 Projeto QuantEcon | Universidade Federal de Juiz de Fora</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../static/js/script.js"></script>
+</body>
+</html>

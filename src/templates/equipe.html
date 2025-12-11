@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equipe - QuantEcon UFJF</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Open+Sans:wght@400;600&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="../static/css/styles.css">
+    <script>
+        // Inline script to set theme immediately and prevent flash
+        (function () {
+            try {
+                var localTheme = localStorage.getItem('theme');
+                var supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                if (localTheme === 'dark' || (!localTheme && supportDarkMode)) {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                } else {
+                    document.documentElement.setAttribute('data-theme', 'light');
+                }
+            } catch (e) { }
+        })();
+    </script>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <header>
+        <div class="logo"><a href="index.html">QuantEcon UFJF</a></div>
+        <nav>
+            <ul>
+                <li><a href="index.html#home" data-i18n="nav.home">Início</a></li>
+                <li><a href="index.html#parceiros" data-i18n="nav.about">Sobre</a></li>
+                <li><a href="index.html#courses" data-i18n="nav.courses">Minicursos</a></li>
+                <li><a href="equipe.html" style="color: var(--primary-color);" data-i18n="nav.team">Equipe</a></li>
+                <li style="display: flex; align-items: center; gap: 10px;">
+                    <button id="theme-toggle" class="theme-toggle-btn" aria-label="Alternar Tema">
+                        <!-- Icon will be set by JS -->
+                        ☀️
+                    </button>
+                    <button id="lang-toggle" class="theme-toggle-btn" aria-label="Alternar Idioma"
+                        style="font-size: 0.9rem; border: 1px solid currentColor; border-radius: 4px; padding: 4px 8px; width: auto; height: auto;">
+                        PT
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <canvas id="hero-canvas"></canvas>
+        <h1 data-i18n="team.title">Nossa Equipe</h1>
+        <p data-i18n="team.subtitle">Conheça os profissionais e voluntários que fazem o QuantEcon acontecer.</p>
+    </div>
+
+    <section class="container section-padding">
+        <!-- <h2 class="section-title">Nossa Equipe</h2> Removed duplicate title -->
+        <div class="team-grid">
+            <div class="team-card">
+                <span class="member-role" data-i18n="team.role.advisor">Orientador</span>
+                <h3 class="member-name">Paulo C. Coimbra</h3>
+                <div class="member-bio" data-i18n="team.bio.paulo">
+                    Doutor e mestre em economia pela Escola Brasileira de Economia e Finanças da Fundação Getulio Vargas
+                    (EPGE/FGV-RJ), Paulo C. Coimbra é professor adjunto na Faculdade de Economia da Universidade Federal
+                    de Juiz de Fora (FE/UFJF). Coimbra também possui especializações em métodos estatísticos
+                    computacionais e em desenvolvimento de sistemas com tecnologia Java (ambas pelo Instituto de
+                    Ciências Exatas da Universidade Federal de Juiz de Fora - ICE/UFJF). O economista é formado pela
+                    Universidade Santa Úrsula (USU-RJ) e já lecionou em cursos de economia e finanças na Fundação
+                    Getulio Vargas (FGV-RJ), Pontifícia Universidade Católica (PUC-RJ) e Ibmec Business School
+                    (Ibmec-RJ). Escreveu sobre derivativos no portal de notícias InfoMoney.
+                </div>
+            </div>
+        </div>
+
+        <div class="volunteers-section">
+            <div class="team-card volunteers-card">
+                <span class="member-role" data-i18n="team.volunteers" style="margin-bottom: 30px;">Voluntários</span>
+                <div class="volunteers-grid">
+                    <div class="volunteer-name">Alexandre Silva dos Santos Júnior</div>
+                    <div class="volunteer-name">André Camisão Nascimento</div>
+                    <div class="volunteer-name">Antonio Belletti</div>
+                    <div class="volunteer-name">Caetano Aguiar Villela</div>
+                    <div class="volunteer-name">Carlos Henrique Medice Martins</div>
+                    <div class="volunteer-name">Daniel Filipe Cople Rodrigues</div>
+                    <div class="volunteer-name">Davi Braz de Morais</div>
+                    <div class="volunteer-name">Eric Loures</div>
+                    <div class="volunteer-name">Eurico da Fonseca Martins Júnior</div>
+                    <div class="volunteer-name">Gabriel Ângelo Borges</div>
+                    <div class="volunteer-name">Giovanna Vitória Silva Macêdo</div>
+                    <div class="volunteer-name">Giovanni de Castro Tempesta</div>
+                    <div class="volunteer-name">Isadora Furtado Nunes</div>
+                    <div class="volunteer-name">João Pedro Miranda</div>
+                    <div class="volunteer-name">João Pedro Silva Pereira</div>
+                    <div class="volunteer-name">Julia Giacomini Lopes</div>
+                    <div class="volunteer-name">Lairon Oliveira Barbosa</div>
+                    <div class="volunteer-name">Lorraine Aparecida Lopes Santana</div>
+                    <div class="volunteer-name">Lucas Feijó Barros</div>
+                    <div class="volunteer-name">Luis Gabriel de Carvalho</div>
+                    <div class="volunteer-name">Matheus Lemos Rios</div>
+                    <div class="volunteer-name">Nicolas Santana Sanches</div>
+                    <div class="volunteer-name">Pâmela Hansen Reis</div>
+                    <div class="volunteer-name">Rafael Esteves</div>
+                    <div class="volunteer-name">Rafaela Dias</div>
+                    <div class="volunteer-name">Rhyan Dutra</div>
+                    <div class="volunteer-name">Saulo Foscarini Garcia</div>
+                    <div class="volunteer-name">Tales Simão</div>
+                    <div class="volunteer-name">Thayene Hellen Siqueira</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <footer>
+            <p data-i18n="footer.text">© 2025 Projeto QuantEcon | Universidade Federal de Juiz de Fora</p>
+        </footer>
+    </footer>
+
+    <script src="../static/js/script.js"></script>
+</body>
+
+</html>
