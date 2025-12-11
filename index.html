@@ -9,6 +9,20 @@
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Open+Sans:wght@400;600&display=swap"
         rel="stylesheet">
 
+    <script>
+        // Inline script to set theme immediately and prevent flash
+        (function () {
+            try {
+                var localTheme = localStorage.getItem('theme');
+                var supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                if (localTheme === 'dark' || (!localTheme && supportDarkMode)) {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                } else {
+                    document.documentElement.setAttribute('data-theme', 'light');
+                }
+            } catch (e) { }
+        })();
+    </script>
     <style>
         /* --- CONFIGURAÇÕES GERAIS --- */
         :root {
@@ -89,11 +103,13 @@
         }
 
         .logo {
-            font-size: 1.4rem;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
             font-weight: 800;
+            /* ExtraBold */
             color: var(--text-dark);
-            /* Azul Escuro (Mesma cor do fundo da seção Extensão) */
-            letter-spacing: -0.5px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
         nav ul {
@@ -425,13 +441,13 @@
                 <li><a href="#minicursos" data-i18n="nav.courses">Minicursos</a></li>
                 <li><a href="equipe.html" data-i18n="nav.team">Equipe</a></li>
                 <li style="display: flex; align-items: center; gap: 10px;">
-                    <button id="lang-toggle" class="theme-toggle-btn" aria-label="Alternar Idioma"
-                        style="font-size: 0.9rem; border: 1px solid currentColor; border-radius: 4px; padding: 4px 8px; width: auto; height: auto;">
-                        PT
-                    </button>
                     <button id="theme-toggle" class="theme-toggle-btn" aria-label="Alternar Tema">
                         <!-- Icon will be set by JS -->
                         ☀️
+                    </button>
+                    <button id="lang-toggle" class="theme-toggle-btn" aria-label="Alternar Idioma"
+                        style="font-size: 0.9rem; border: 1px solid currentColor; border-radius: 4px; padding: 4px 8px; width: auto; height: auto;">
+                        PT
                     </button>
                 </li>
             </ul>
