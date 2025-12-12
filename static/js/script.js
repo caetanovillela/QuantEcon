@@ -158,6 +158,7 @@ document.addEventListener("DOMContentLoaded", () => {
       "course.ai.desc":
         "Como usar LLMs (ChatGPT, Claude) para acelerar a sua pesquisa, escrita e produtividade académica com engenharia de prompts.",
       "course.cta": "Inscrever-se →",
+      "course.soon": "Em breve",
       "footer.text":
         "© 2025 Projeto QuantEcon | Universidade Federal de Juiz de Fora",
       "team.title": "Nossa Equipe",
@@ -215,6 +216,7 @@ document.addEventListener("DOMContentLoaded", () => {
       "course.ai.desc":
         "How to use LLMs (ChatGPT, Claude) to accelerate your research, writing, and academic productivity with prompt engineering.",
       "course.cta": "Register →",
+      "course.soon": "Coming Soon",
       "footer.text":
         "© 2025 QuantEcon Project | Federal University of Juiz de Fora",
       "team.title": "Our Team",
@@ -272,5 +274,41 @@ document.addEventListener("DOMContentLoaded", () => {
       const newLang = currentLang === "pt" ? "en" : "pt";
       setLanguage(newLang);
     });
+  }
+  // --- FORM SUBMISSION LOGIC (EmailJS) ---
+  const formPython = document.getElementById('form-python');
+  const formR = document.getElementById('form-r');
+
+  const SERVICE_ID = 'service_978q2hk';
+  const TEMPLATE_ID = 'template_y9ml7cp';
+
+  function handleEmailSubmission(event) {
+    event.preventDefault();
+    const form = event.target;
+    const btn = form.querySelector('.submit-btn');
+    const originalText = btn.innerText;
+
+    btn.innerText = 'Enviando...';
+    btn.disabled = true;
+
+    emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form)
+      .then(() => {
+        alert('Inscrição realizada com sucesso! 🎉\nO e-mail de confirmação foi enviado para você.');
+        form.reset();
+      }, (err) => {
+        alert('Ocorreu um erro ao enviar a inscrição: ' + JSON.stringify(err));
+      })
+      .finally(() => {
+        btn.innerText = originalText;
+        btn.disabled = false;
+      });
+  }
+
+  if (formPython) {
+    formPython.addEventListener('submit', handleEmailSubmission);
+  }
+
+  if (formR) {
+    formR.addEventListener('submit', handleEmailSubmission);
   }
 });
