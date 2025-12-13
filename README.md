@@ -26,7 +26,7 @@ A página direciona inscrições para as seguintes trilhas:
 ## 🔗 Como visualizar
 
 Você pode acessar a versão online deste projeto através do link:
-[**Acesse o site aqui**](https://euricojr.github.io/QuantEcon/)
+[**Acesse o site aqui**](quanteconbr.github.io/QuantEcon/)
 
 ## 📄 Licença
 
