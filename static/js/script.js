@@ -134,7 +134,7 @@ document.addEventListener("DOMContentLoaded", () => {
       "nav.about": "Sobre",
       "nav.courses": "Minicursos",
       "nav.team": "Equipe",
-      "hero.title": "Ciência de Dados aplicada à<br>Economia e Finanças",
+      "hero.title": "Ciência de Dados e IA aplicada à<br>Economia e Finanças",
       "hero.subtitle":
         "Projeto de extensão da UFJF. Tornamos a programação e IA acessíveis para todos.",
       "hero.cta": "Inscrever-se Agora",
@@ -196,7 +196,7 @@ document.addEventListener("DOMContentLoaded", () => {
       "nav.about": "About",
       "nav.courses": "Crash Courses",
       "nav.team": "Team",
-      "hero.title": "Data Science applied to<br>Economics and Finance",
+      "hero.title": "Data Science and AI applied to<br>Economics and Finance",
       "hero.subtitle":
         "UFJF extension project. We make programming and AI accessible to everyone.",
       "hero.cta": "Register Now",
@@ -289,7 +289,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const modalInstructor = document.getElementById("modal-instructor");
   const modalDates = document.getElementById("modal-dates");
   const modalLocation = document.getElementById("modal-location");
-  const modalSubscribeBtn = document.getElementById("modal-subscribe-btn");
   const closeBtn = document.querySelector(".close-modal");
 
   const courseData = {
@@ -297,31 +296,28 @@ document.addEventListener("DOMContentLoaded", () => {
       title: "Introdução à Programação em Python",
       instructor: "Davi Braz de Morais (Projeto QuantEcon)",
       dates: [
-        "Quarta, 21/01/2026 – 19h às 22h",
-        "Quarta, 28/01/2026 – 19h às 22h"
+        { label: "Quarta, 21/01/2026 – 19h às 22h", link: "https://www.sympla.com.br/evento/curso-de-introducao-a-python/3279802" },
+        { label: "Quarta, 28/01/2026 – 19h às 22h", link: "https://www.sympla.com.br/evento/curso-de-introducao-ao-python/3279808" }
       ],
-      location: "Prédio da Faculdade de Economia – UFJF, Campus Juiz de Fora",
-      link: "#" // Placeholder
+      location: "Prédio da Faculdade de Economia – UFJF, Campus Juiz de Fora"
     },
     r: {
       title: "Introdução ao R para Manipulação e Análise de Dados",
       instructor: "Eric Loures (Projeto QuantEcon)",
       dates: [
-        "Quarta, 21/01/2026 – 19h às 22h",
-        "Quarta, 28/01/2026 – 19h às 22h"
+        { label: "Quarta, 21/01/2026 – 19h às 22h", link: "https://www.sympla.com.br/evento/curso-de-introducao-ao-r/3279804" },
+        { label: "Quarta, 28/01/2026 – 19h às 22h", link: "https://www.sympla.com.br/evento/curso-de-introducao-ao-r/3279810" }
       ],
-      location: "Prédio da Faculdade de Economia – UFJF, Campus Juiz de Fora",
-      link: "#" // Placeholder
+      location: "Prédio da Faculdade de Economia – UFJF, Campus Juiz de Fora"
     },
     git: {
       title: "Curso Essencial de Git & GitHub",
       instructor: "Lucas Braga Ciotola (Projeto QuantEcon)",
       dates: [
-        "Quinta, 22/01/2026 – 19h às 21h",
-        "Sexta, 23/01/2026 – 19h às 21h"
+        { label: "Quinta, 22/01/2026 – 19h às 21h", link: "#" },
+        { label: "Sexta, 23/01/2026 – 19h às 21h", link: "#" }
       ],
-      location: "Prédio da Faculdade de Economia – UFJF, Campus Juiz de Fora",
-      link: "#" // Placeholder
+      location: "Prédio da Faculdade de Economia – UFJF, Campus Juiz de Fora"
     }
   };
 
@@ -335,14 +331,17 @@ document.addEventListener("DOMContentLoaded", () => {
         modalInstructor.textContent = data.instructor;
         modalLocation.textContent = data.location;
         
-        // Update Link
-        modalSubscribeBtn.href = data.link;
-
-        // Populate dates
+        // Populate dates with individual subscribe buttons
         modalDates.innerHTML = "";
-        data.dates.forEach(date => {
+        data.dates.forEach(item => {
           const li = document.createElement("li");
-          li.textContent = date;
+          li.className = "date-item"; // For styling
+          
+          li.innerHTML = `
+            <span class="date-text">${item.label}</span>
+            <a href="${item.link}" target="_blank" class="date-subscribe-btn">Inscrever-se</a>
+          `;
+          
           modalDates.appendChild(li);
         });
 

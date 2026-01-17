@@ -409,7 +409,7 @@ nav a:hover {
 
 /* --- COURSES CARDS --- */
 .courses {
-  padding: 80px 0;
+  padding: 40px 0;
   background-color: var(--card-bg-color);
   /* Light bg for contrast */
 }
@@ -449,33 +449,34 @@ nav a:hover {
 .card-actions {
   margin-top: auto;
   display: flex;
-  justify-content: space-between;
+  justify-content: center; /* Center the single button */
   align-items: center;
-  gap: 15px;
+  gap: 10px;
   border-top: 1px solid rgba(0,0,0,0.05); /* Subtle separator */
-  padding-top: 20px;
+  padding-top: 15px;
 }
 
 .btn-learn-more {
   background: none;
-  border: none;
+  border: 1px solid rgba(43, 108, 176, 0.3);
   color: var(--primary-color);
   cursor: pointer;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   text-decoration: none;
   transition: all 0.3s;
-  padding: 5px 10px;
-  border-radius: 4px;
-  background-color: rgba(43, 108, 176, 0.1); /* Light blue bg */
+  padding: 4px 12px;
+  border-radius: 20px; /* Pill shape */
+  background-color: transparent;
 }
 
 .btn-learn-more:hover {
   background-color: var(--primary-color);
   color: white;
-  transform: translateY(-2px);
+  border-color: var(--primary-color);
+  transform: translateY(-1px);
 }
 
 /* Modal Styles */
@@ -549,21 +550,37 @@ nav a:hover {
 
 .modal-body ul li {
   background-color: var(--card-bg-color);
-  padding: 8px 12px;
-  margin-bottom: 5px;
-  border-radius: 6px;
-  border-left: 3px solid var(--primary-color);
+  padding: 12px 15px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  border-left: 4px solid var(--primary-color);
   font-size: 0.95rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
+.date-subscribe-btn {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 6px 15px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.3s;
+}
+
+.date-subscribe-btn:hover {
+  background-color: #1a4a7c; /* Darker blue */
+}
+
+/* Remove old modal footer styles if present, or just leave them unused */
 .modal-footer {
-  margin-top: 25px;
-  text-align: right;
-}
-
-.modal-footer .cta-button {
-  padding: 12px 25px;
-  font-size: 1rem;
+  display: none;
 }
 
 .card-icon {
@@ -591,8 +608,10 @@ nav a:hover {
   color: var(--primary-color);
   font-weight: 800;
   text-transform: uppercase;
-  font-size: 0.9rem;
+  font-size: 0.75rem; /* Smaller */
   letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+  text-decoration: none;
 }
 
 .card-link:hover {
