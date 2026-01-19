@@ -295,27 +295,30 @@ document.addEventListener("DOMContentLoaded", () => {
     python: {
       title: "Introdução à Programação em Python",
       instructor: "Davi Braz de Morais (Projeto QuantEcon)",
+      link: "https://docs.google.com/forms/d/e/1FAIpQLSfHCzPp_gyzokWubHWcD9TOfvd-WQf1wjIi8eaaJyy_3FRLAA/viewform?usp=publish-editor",
       dates: [
-        { label: "Quarta, 21/01/2026 – 19h às 22h", link: "https://www.sympla.com.br/evento/curso-de-introducao-a-python/3279802" },
-        { label: "Quarta, 28/01/2026 – 19h às 22h", link: "https://www.sympla.com.br/evento/curso-de-introducao-ao-python/3279808" }
+        { label: "Quarta, 21/01/2026 – 19h às 22h" },
+        { label: "Quarta, 28/01/2026 – 19h às 22h" }
       ],
       location: "Prédio da Faculdade de Economia – UFJF, Campus Juiz de Fora"
     },
     r: {
       title: "Introdução ao R para Manipulação e Análise de Dados",
       instructor: "Eric Loures (Projeto QuantEcon)",
+      link: "https://docs.google.com/forms/d/e/1FAIpQLSfGYsMNWuJ-ctFUJRsIEY_PXy0kaeatKL9lk9BHoGZMf3RBNw/viewform?usp=publish-editor",
       dates: [
-        { label: "Quarta, 21/01/2026 – 19h às 22h", link: "https://www.sympla.com.br/evento/curso-de-introducao-ao-r/3279804" },
-        { label: "Quarta, 28/01/2026 – 19h às 22h", link: "https://www.sympla.com.br/evento/curso-de-introducao-ao-r/3279810" }
+        { label: "Quarta, 21/01/2026 – 19h às 22h" },
+        { label: "Quarta, 28/01/2026 – 19h às 22h" }
       ],
       location: "Prédio da Faculdade de Economia – UFJF, Campus Juiz de Fora"
     },
     git: {
       title: "Curso Essencial de Git & GitHub",
       instructor: "Lucas Braga Ciotola (Projeto QuantEcon)",
+      link: "https://docs.google.com/forms/d/e/1FAIpQLSdOb66xfReWiviXocbuSyuDTx6xkv-fzv2NZsMp-QAvdCidkg/viewform?usp=publish-editor",
       dates: [
-        { label: "Quinta, 22/01/2026 – 19h às 21h", link: "https://www.sympla.com.br/evento/curso-de-introducao-ao-git-e-github/3279807" },
-        { label: "Sexta, 23/01/2026 – 19h às 21h", link: "https://www.sympla.com.br/evento/curso-de-introducao-do-git-e-github/3279811" }
+        { label: "Quinta, 22/01/2026 – 19h às 21h" },
+        { label: "Sexta, 23/01/2026 – 19h às 21h" }
       ],
       location: "Prédio da Faculdade de Economia – UFJF, Campus Juiz de Fora"
     }
@@ -326,24 +329,50 @@ document.addEventListener("DOMContentLoaded", () => {
       const courseKey = btn.getAttribute("data-course");
       const data = courseData[courseKey];
 
-      if (data) {
+    if (data) {
         modalTitle.textContent = data.title;
         modalInstructor.textContent = data.instructor;
         modalLocation.textContent = data.location;
         
-        // Populate dates with individual subscribe buttons
+        // Populate dates
         modalDates.innerHTML = "";
         data.dates.forEach(item => {
           const li = document.createElement("li");
           li.className = "date-item"; // For styling
           
-          li.innerHTML = `
-            <span class="date-text">${item.label}</span>
-            <a href="${item.link}" target="_blank" class="date-subscribe-btn">Inscrever-se</a>
-          `;
+          if (data.link) {
+             // New Behavior: Single course link, no button per date
+             li.innerHTML = `<span class="date-text">${item.label}</span>`;
+          } else {
+             // Legal Behavior: Link per date
+             li.innerHTML = `
+              <span class="date-text">${item.label}</span>
+              <a href="${item.link}" target="_blank" class="date-subscribe-btn">Inscrever-se</a>
+            `;
+          }
           
           modalDates.appendChild(li);
         });
+
+        // Handle single main button
+        // Remove existing main button if any
+        const existingBtn = document.querySelector(".modal-main-subscribe-btn");
+        if (existingBtn) existingBtn.remove();
+
+        if (data.link) {
+            const mainBtn = document.createElement("a");
+            mainBtn.href = data.link;
+            mainBtn.target = "_blank";
+            mainBtn.className = "date-subscribe-btn modal-main-subscribe-btn"; // Reuse class for style or add new
+            mainBtn.textContent = "Inscrever-se no Curso";
+            mainBtn.style.display = "block";
+            mainBtn.style.width = "100%";
+            mainBtn.style.textAlign = "center";
+            mainBtn.style.marginTop = "20px";
+            
+            // Insert after the dates list
+            modalDates.after(mainBtn);
+        }
 
         modal.classList.add("show");
       }
