@@ -17,7 +17,7 @@ O QuantEcon UFJF dedica-se a modernizar o ensino e a pesquisa em Economia e Fina
 
 ## 📚 Minicursos Divulgados
 
-A página direciona inscrições para as seguintes trilhas:
+A página direciona inscrições para essas seguintes trilhas:
 
 1.  **Introdução ao Python:** Foco em Data Science e bibliotecas como Pandas e NumPy.
 2.  **Introdução ao R:** Foco em Estatística e Econometria.
